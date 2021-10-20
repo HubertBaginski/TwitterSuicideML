@@ -1,7 +1,8 @@
 import numpy as np
 
 from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics import make_scorer, precision_score, f1_score, accuracy_score, recall_score, confusion_matrix
+from sklearn.metrics import make_scorer, precision_score, f1_score, accuracy_score, recall_score, \
+    confusion_matrix
 from sklearn.model_selection import GridSearchCV
 from sklearn.pipeline import Pipeline
 from sklearn.svm import SVC
@@ -20,7 +21,6 @@ def run_SVM_CV(train_features, test_features, y_train, y_test, confusion=True, v
     # for tfidf params check https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html
 
     parameters = {
-        #  'vect__max_df': (0.5, 0.75, 1.0),
         'vect__max_features': (None, 10000, 25000, 50000),
         'vect__ngram_range': ((1, 1), (1, 2)),  # unigrams or bigrams
         'clf__C': np.arange(0.01, 1.01, 0.03),

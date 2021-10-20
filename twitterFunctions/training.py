@@ -1,8 +1,9 @@
 import os
 import random
-import torch
-import tensorflow as tf
+
 import numpy as np
+import tensorflow as tf
+import torch
 from ktrain import text, get_predictor, get_learner
 
 
@@ -22,12 +23,13 @@ def set_seeds(seed):
 # .., checkpoint_folder="D:/Hubert/checkpoint/"
 # this will save the parameters of each epoch. We can load the best one after training has finished
 def train_learner(X_train, y_train, X_val, y_val,
-                  lr, epoch, seed, text_length, checkpoint_folder=None, model_name="bert-base-uncased"):
-    classNames = y_train.unique()
+                  lr, epoch, seed, text_length, checkpoint_folder=None,
+                  model_name="bert-base-uncased"):
+    class_names = np.unique(y_train, return_counts=False)
 
     set_seeds(seed)
 
-    t = text.Transformer(model_name, maxlen=text_length, class_names=classNames)
+    t = text.Transformer(model_name, maxlen=text_length, class_names=class_names)
     trn = t.preprocess_train(X_train, y_train)
     val = t.preprocess_test(X_val, y_val)
     model2 = t.get_classifier()

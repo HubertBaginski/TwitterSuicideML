@@ -1,8 +1,9 @@
 import re
 import string
-from nltk.tokenize import WhitespaceTokenizer
-from nltk.stem import WordNetLemmatizer
+
 from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer
+from nltk.tokenize import WhitespaceTokenizer
 
 smile = " :smiling_face: "
 neutralface = " :neutral_face: "
@@ -15,7 +16,7 @@ def reduce_lengthening(text):
     return pattern.sub(r"\1\1", text)
 
 
-def processMe(x):
+def process_tweet(x):
     x = re.sub('https?://\S+|www\.\S+', ' http ', x)
     eyes = "8:=;"
     nose = "'`_^-"
@@ -63,22 +64,14 @@ def processMe(x):
         x += " suicide hotline"
 
     x = x.replace("@TwURL", " http ")
-    # x = re.sub(r"(^|\W)\d+", " <number> ", x)
     x = re.sub(r'(\W)(?=\1)', '', x)
     x = re.sub(r'(\D)(?=\1\1)', '', x)
     x = re.sub(r'(?-imsx:(.+)\b(.+))', r'\1 \2', x)
-    # if i != 0:
-    #    for i in range(upper_count):
-    #        x = x # + " allcaps " # test not using allcpas
     x = re.sub("\s+", " ", x)
     return x.lower().strip()
 
 
 def fix_emotes(s, digits=False):
-    # s = re.sub('(!"#$%&\'()*,-./:;<=>?[_]{|}~)', r' \1 ', s)
-    # s = re.sub('\s{2,}', ' ', s)
-    # s = s.replace("\\", " \ ")
-    # s = re.sub(r'([0-9]pc)', r' % ' , s)
     replaceMe = string.punctuation.replace("'", "").replace("`", "").replace("@", "")
     for i in replaceMe:
         s = s.replace(i, " " + i + " ")
