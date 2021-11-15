@@ -1,11 +1,11 @@
 # TwitterSuicideML
 
-Skripts for reproducing the Machine Learning analysis of the paper: Detecting Potentially Harmful and Protective Suicide-related Content on Twitter: Machine Learning Classification of Tweets
+Scripts for reproducing the Machine Learning analysis of the paper: Detecting Potentially Harmful and Protective Suicide-related Content on Twitter: Machine Learning Classification of Tweets
 
 1. clone this repository: 
 git clone https://github.com/HubertBaginski/TwitterSuicideML.git
 
-2. Get the dataset with tweet text, and put it in the folder"data" within the repository folder.
+2. Get the dataset with tweet text, and put it in the folder "data" within the repository folder.
 Option a: write to us to get the training dataset including the text of tweets: metzler@csh.ac.at
 Option b: rehydrate the tweets based on the tweet IDs in the dataset 
 
