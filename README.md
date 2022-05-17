@@ -26,7 +26,7 @@ pip install -r requirements.txt
 
 ## Dataset documentation
 
-**Training data set** (training_posts20201201_main_categories_no_tweet_text.tsv)
+**Training data set** (training_posts20201201_main_categories.csv)
 
 - timestamp: publication date and time of the tweet
 - tweet_id: ID needed to redownload the tweet via the Twitter API (rehydration)
