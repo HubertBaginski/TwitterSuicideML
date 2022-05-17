@@ -1,5 +1,7 @@
 # TwitterSuicideML
 
+For a detailed documentation, see the method section of this paper: http://arxiv.org/abs/2112.04796
+
 Scripts for reproducing the Machine Learning analysis of the paper: Detecting Potentially Harmful and Protective Suicide-related Content on Twitter: Machine Learning Classification of Tweets
 
 1. clone this repository: 
