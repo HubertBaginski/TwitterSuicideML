@@ -22,4 +22,41 @@ pip install -r requirements.txt
 
 6. Open Jupyter Notebook or Juptyer Lab
 
+## Dataset documentation
 
+**Training data set** (training_posts20201201_main_categories_no_tweet_text.tsv)
+
+- timestamp: publication date and time of the tweet
+- tweet_id: ID needed to redownload the tweet via the Twitter API (rehydration)
+- set: the subset of the dataset as described in the Manuscript, section "Creating the Annotation Scheme and Labelled Dataset":
+    1. inital_training_set_coded_on_CH denotes the about 550 tweets coded on the Crimson Hexagon platform in step 1 of dataset creation. 
+    2. reliability_testing_set1 denotes the 500 tweets added in step 2. 
+    3. realibility_testing_set2 deontes the remaining tweets added in step 3, until we reached at least 200 per category
+    4.   basefrequency denotes the 1000 randomly selected tweets that were added to the training set in step 4
+- ambiguous: keywords for tweets the coders found ambiguous at some point during the coding process. E.g. pastsuicidality denotes tweets that speak about suicidality in the past, and implicitly suggest that coping occured, without being explicit.
+- notserious_unclear: tweets that are clearly not serious (jokes, metaphors, exaggerations etc) or where it is unclear if they are serious in contrast to sarcastic etc, are marked with a 1. All other tweets get a 0. 
+- focus: the problem/suffering vs. solution/coping perspective of the tweet: 0= neither problem solution,1 = problem, 2=solution (see Table 1 in the Manuscript)
+- type: denotes the message type (see Table 1 in the Manuscript)
+- category: the 12 detailed categories resulting from crossing focus/perspective and type
+- category2: an alternative 2nd category that would also fit that was considered during labelling (could be used for multi-label machine learning models). Most tweets do not have a second fitting category. 
+- main_category: the 6 categories that models were trained on in the paper (coping, suicidality (=suicidal ideation & attempts), prevention, awareness, werther (=suicide cases) and all other categories combined irrelevant
+- about_suicide: tweet is about actual suicide = 1, not about actual suicide = 0. All tweets except the off-topic category are about actual suicide. 
+
+
+
+**Number of tweets per category in the dataset**
+
+| Detailed category | n | Main category | About suicide | 
+| --- |---|---|---|
+| Suicidal ideation & attempts | 284 | Suicidal ideation & attempts| 1 |
+| Coping  | 205 | Coping | 1 |
+| Awareness  | 314 | Awareness |1 |
+| Prevention  | 457 | Prevention |1 |
+| Suicide case | 514 | Suicide case |1 |
+| News suicidal ideation  | 68 | Irrelevant |1 |
+| News coping  | 27 | Irrelevant |1 |
+| Bereaved negative | 34 | Irrelevant |1 |
+| Bereaved coping | 34 | Irrelevant |1 |
+| Live saved | 13 | Irrelevant |1 |
+| Suicide other | 440 | Irrelevant |1 |
+| Off-topic | 812 | Irrelevant |0|
