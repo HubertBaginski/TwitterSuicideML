@@ -1,6 +1,6 @@
 # TwitterSuicideML
 
-For a detailed documentation, see the method section of this paper: http://arxiv.org/abs/2112.04796
+For detailed documentation, see the method section of this paper: https://www.jmir.org/2022/8/e34705
 
 Scripts for reproducing the Machine Learning analysis of the paper: Detecting Potentially Harmful and Protective Suicide-related Content on Twitter: Machine Learning Classification of Tweets
 
@@ -9,7 +9,7 @@ git clone https://github.com/HubertBaginski/TwitterSuicideML.git
 
 2. Get the dataset with tweet text, and put it in the folder "data" within the repository folder.
 
-The datasets in this repository do not include the text of tweets, in order to protect sensitive user data. Rehydrate the IDs via the Twitter API to get all tweets that have not been deleted or made private by their authors in the mean time.
+The datasets in this repository do not include the text of tweets in order to protect sensitive user data. Rehydrate the IDs via the Twitter API to get all tweets that have not been deleted or made private by their authors in the meantime.
 
 3. Create a virtual environment "TwittersuicideML":
 conda create --name TwitterSuicideML
@@ -17,10 +17,16 @@ conda create --name TwitterSuicideML
 4. Activate the environments after all packages are installed: 
 conda activate TwittersuicideML
 
-5. Install all the packages we used, from within the repository folder:
+5. Install all the packages we used from within the repository folder:
 pip install -r requirements.txt
 
 6. Open Jupyter Notebook or Juptyer Lab
+
+## Machine Learning Models
+
+The final BERT machine learning models are available on Huggingface: 
+1) Task 1 classifier - 6 main categories (personal coping stories, suicidal ideation & attempts, suicide case reports, awareness tweets, prevention tweets, and all other tweets): https://huggingface.co/HubertBaginski/bert-twitter-main-categories
+2) Task 2 classifier: Is a tweet about actual suicide or not (off-topic, sarcastic, metaphors, etc.): https://huggingface.co/HubertBaginski/bert-twitter-about-suicide
 
 ## Dataset documentation
 
