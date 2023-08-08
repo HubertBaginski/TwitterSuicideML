@@ -27,7 +27,7 @@ pip install -r requirements.txt
 
 You can use the models to put together a similar dataset by classifying new tweets and then check  the labels manually to see if they fit the categories in our annotation scheme (see the supplementary information). The final BERT machine learning models are available on Huggingface:
 
-1) Task 1 classifier - 6 main categories (personal coping stories, suicidal ideation & attempts, suicide case reports, awareness tweets, prevention tweets, and all other tweets): https://huggingface.co/HubertBaginski/bert-twitter-main-categories
+1) Task 1 classifier - 6 main categories (coping, suicidal ideation & attempts, prevention, awareness, suicide case reports, and irrelevant (all other tweets)): https://huggingface.co/HubertBaginski/bert-twitter-main-categories
 2) Task 2 classifier: Is a tweet about actual suicide or not (off-topic, sarcastic, metaphors, etc.): https://huggingface.co/HubertBaginski/bert-twitter-about-suicide
 
 ## Dataset documentation
