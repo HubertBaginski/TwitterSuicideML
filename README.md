@@ -9,23 +9,14 @@ Given that access to the Twitter API is not free anymore, our team is currently 
 
 * **Note of caution about Tweet IDs**: we recently discovered an error in some of the Tweet IDs in the dataset of this file. While we are working on reconstructing the correct set of IDs, we do not recommend using our dataset. Alternatively, you could check the rehydrated dataset for any tweets that do not seem to fit the category definitions and exclude them from your analysis. 
 
-
-## Machine Learning Models
-
-The BERT machine learning models are available on Huggingface:
-
-1) Task 1 classifier - 6 main categories (coping, suicidal ideation & attempts, prevention, awareness, suicide case reports, and irrelevant (all other tweets)): https://huggingface.co/HubertBaginski/bert-twitter-main-categories
-
-2) Task 2 classifier: Is a tweet about actual suicide or off-topic (including, for example, sarcastic uses, metaphors, band names etc.): https://huggingface.co/HubertBaginski/bert-twitter-about-suicide
-
 ## Steps to reproduce our machine learning analyses: 
 
 1. clone this repository: 
 git clone https://github.com/HubertBaginski/TwitterSuicideML.git
 
-2. Get the dataset with tweet text, and put it in the folder "data" within the repository folder.
+2. Get a dataset with tweet text, and put it in the folder "data" within the repository folder.
 
-The datasets in this repository do not include the text of tweets, in order to protect sensitive user data. Rehydrate the IDs via the Twitter API to get all tweets that have not been deleted or made private by their authors in the mean time.
+The datasets in this repository do not include the text of tweets in order to protect sensitive user data. Sharing them would be against the Twitter Developer Agreement. Rehydrate the IDs via the Twitter API to get all tweets that have not been deleted or made private by their authors in the meantime.
 
 3. Create a virtual environment "TwittersuicideML":
 conda create --name TwitterSuicideML
@@ -33,10 +24,18 @@ conda create --name TwitterSuicideML
 4. Activate the environments after all packages are installed: 
 conda activate TwittersuicideML
 
-5. Install all the packages we used, from within the repository folder:
+5. Install all the packages we used from within the repository folder:
 pip install -r requirements.txt
 
 6. Open Jupyter Notebook or Juptyer Lab
+
+## Download the Machine Learning Models
+
+You can use the models to put together a similar dataset by classifying new tweets and then check  the labels manually to see if they fit the categories in our  [annotation scheme](https://jmir.org/api/download?alt_name=jmir_v24i8e34705_app2.pdf&filename=5a5265471499223285b7c2c908f61966.pdf). The final BERT machine learning models are available on Huggingface:
+
+1) Task 1 classifier - 6 main categories (coping, suicidal ideation & attempts, prevention, awareness, suicide case reports, and irrelevant (all other tweets)): https://huggingface.co/HubertBaginski/bert-twitter-main-categories
+
+2) Task 2 classifier: Is a tweet about actual suicide or not (off-topic, sarcastic, metaphors, etc.): https://huggingface.co/HubertBaginski/bert-twitter-about-suicide
 
 ## Dataset documentation
 
