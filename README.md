@@ -1,8 +1,24 @@
-# TwitterSuicideML
+# Twitter Suicide ML
 
-For a detailed documentation, see the method section of this paper: http://arxiv.org/abs/2112.04796
+This repository contains the Python code and data for training the machine learning models for the paper: [Detecting Potentially Harmful and Protective Suicide-Related Content on Twitter: Machine Learning Approach](https://www.jmir.org/2022/8/e34705/). For a detailed documentation, see its method section .
 
-Scripts for reproducing the Machine Learning analysis of the paper: Detecting Potentially Harmful and Protective Suicide-related Content on Twitter: Machine Learning Classification of Tweets
+## Important note on sharing the dataset: 
+The datasets in this repository do not include the text of tweets in order to protect sensitive user data. The Twitter Developer Agreement does not allow sharing the text of tweets, in particular tweets on sensitive topics (like suicidal thoughts). If you require the text of tweets, rehydrate (**see note of caution below**) the IDs via the Twitter API to get all tweets that have not been deleted or set to private by their authors in the meantime. This protects the rights of tweet authors to remove public access to their data or delete it. Alternatively, you could put together your own, similar dataset using our ML models from Huggingface to classify new tweets, to then manually check the tweet categories relevant to your research question before you use the dataset for model training. Our [annotation scheme](https://jmir.org/api/download?alt_name=jmir_v24i8e34705_app2.pdf&filename=5a5265471499223285b7c2c908f61966.pdf) will help you with the category definitions and rules for manual labeling. 
+
+Given that access to the Twitter API is not free anymore, our team is currently developing a new data-sharing policy and solution. At the moment, we can unfortunately not share this dataset. 
+
+* **Note of caution about Tweet IDs**: we recently discovered an error in some of the Tweet IDs in the dataset of this file. While we are working on reconstructing the correct set of IDs, we do not recommend using our dataset. Alternatively, you could check the rehydrated dataset for any tweets that do not seem to fit the category definitions and exclude them from your analysis. 
+
+
+## Machine Learning Models
+
+The BERT machine learning models are available on Huggingface:
+
+1) Task 1 classifier - 6 main categories (coping, suicidal ideation & attempts, prevention, awareness, suicide case reports, and irrelevant (all other tweets)): https://huggingface.co/HubertBaginski/bert-twitter-main-categories
+
+2) Task 2 classifier: Is a tweet about actual suicide or off-topic (including, for example, sarcastic uses, metaphors, band names etc.): https://huggingface.co/HubertBaginski/bert-twitter-about-suicide
+
+## Steps to reproduce our machine learning analyses: 
 
 1. clone this repository: 
 git clone https://github.com/HubertBaginski/TwitterSuicideML.git
